@@ -1,0 +1,44 @@
+{
+config,
+pkgs,
+...
+}: {
+    imports = [
+     ./ideapad3
+ #   ./Oberon
+ #   ./Phalanx
+    ];
+    
+     system.stateVersion = "23.11"; # Did you read the comment?
+
+    users.users.cjrminus = {
+     isNormalUser = true;
+     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+     packages = with pkgs; [
+	wingpanel-indicator-ayatana
+        librewolf
+	linuxConsoleTools
+pkgs.pantheon.pantheon-agent-polkit
+	osu-lazer-bin
+	discord
+        floorp
+#	vinegar	
+	onlyoffice-bin
+  networkmanagerapplet
+	swaynotificationcenter
+	waybar
+  git-credential-manager
+	wlogout
+  xwaylandvideobridge
+  pkgs.libsForQt5.qtstyleplugin-kvantum
+	swappy
+	libnotify
+	vscode
+	pkgs.qt6Packages.qtstyleplugin-kvantum	
+	neovim
+       tree
+     ];
+   };
+    
+    
+}
